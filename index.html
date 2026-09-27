@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#100b07">
+  <meta name="description" content="山寨竞技场：驾驶、变形、升级，在沙海都市中击败 LEGACY 双王。">
+  <title>山寨竞技场 · STREET MODE</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='5' fill='%23100b07'/%3E%3Cpath d='M5 19 14 5h5l-2 8h10L15 28h-4l3-9z' fill='%23f2a24a' stroke='%23f3e5ca'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css?v=comic7">
+</head>
+<body>
+  <main id="game-shell">
+    <div class="crt-frame">
+      <section id="title-screen" class="screen active" aria-labelledby="game-title">
+        <h1 id="game-title" class="sr-only">狂扁外国车</h1>
+        <img class="title-art" src="assets/title-comic.webp" alt="狂扁外国车，两名汽车人在沙海城市中对峙">
+        <button id="start-button" class="title-start-button" aria-label="START 开始游戏">
+          <img src="assets/start-button-exact.webp" alt="">
+          <span>START</span>
+        </button>
+      </section>
+
+      <section id="select-screen" class="screen" aria-labelledby="select-title">
+        <div class="select-copy">
+          <h1 id="select-title">CHOOSE YOUR CHARACTER</h1>
+          <p id="select-status" aria-live="polite"></p>
+        </div>
+        <div class="hero-options">
+          <button class="hero-option su7-choice" data-hero="su7">
+            <span class="car-preview su7"></span>
+            <strong>SU7 ULTRA</strong>
+          </button>
+          <button class="hero-option yu7-choice" data-hero="yu7">
+            <span class="car-preview yu7"></span>
+            <strong>YU7</strong>
+          </button>
+        </div>
+        <div class="select-controls"><b>WASD</b> MOVE　<b>J</b> PUNCH　<b>K</b> KICK　<b>L</b> SKILL</div>
+      </section>
+
+      <section id="play-screen" class="screen" aria-label="横板格斗关卡">
+        <canvas id="game-canvas" width="1280" height="720" tabindex="0" aria-label="山寨竞技场横板格斗游戏"></canvas>
+        <header class="hud">
+          <div class="identity"><strong id="hero-name">SU7 ULTRA</strong><span id="level-label">LV.1</span></div>
+          <div class="bar hp-bar"><i id="hp-fill"></i></div>
+          <div class="bar xp-bar"><i id="xp-fill"></i></div>
+          <div class="hud-meta"><span id="weapon-label">拳脚模式</span><span id="combo-label">COMBO × 0</span></div>
+        </header>
+        <div id="mission" class="mission">车辆入场中</div>
+        <div id="key-guide" class="key-guide"><b>WASD</b> MOVE　<b>J</b> PUNCH　<b>K</b> KICK　<b>L</b> SKILL</div>
+        <div id="comic-word" class="comic-word" aria-hidden="true"></div>
+
+        <div id="upgrade-panel" class="modal" role="dialog" aria-modal="true" aria-labelledby="upgrade-title">
+          <div class="modal-card augment-panel">
+            <span id="upgrade-code">AUGMENT SELECT</span>
+            <h2 id="upgrade-title">选择强化</h2>
+            <div class="upgrade-grid">
+              <button class="augment-card agility" data-upgrade="agility">
+                <span class="augment-art" aria-hidden="true"></span>
+                <b>敏捷</b><small>移速 +18% · 攻速 +20%</small>
+              </button>
+              <button class="augment-card defense" data-upgrade="defense">
+                <span class="augment-art" aria-hidden="true"></span>
+                <b>防御</b><small>生命 +45 · 持续回血</small>
+              </button>
+              <button class="augment-card attack" data-upgrade="attack">
+                <span class="augment-art" aria-hidden="true"></span>
+                <b>攻击</b><small id="weapon-next">进化：脉冲手枪</small>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div id="end-panel" class="modal" role="dialog" aria-modal="true" aria-labelledby="end-title">
+          <div class="modal-card end-card">
+            <img id="end-character" class="end-character" src="assets/lei-jun-win.webp" alt="卡通雷军开心地竖起大拇指">
+            <h2 id="end-title">胜利</h2>
+            <button id="restart-button">再来一局</button>
+            <button id="change-button" class="quiet">更换角色</button>
+          </div>
+        </div>
+      </section>
+
+      <div class="scanlines" aria-hidden="true"></div>
+      <div class="vignette" aria-hidden="true"></div>
+    </div>
+    <footer><span>SHANZHAI ARENA // 2026</span><span>课程概念作品 · 非品牌官方游戏</span></footer>
+  </main>
+  <script src="game.js?v=comic11"></script>
+</body>
+</html>
+
